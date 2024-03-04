@@ -72,6 +72,7 @@ public class UserController {
 		session.removeAttribute("authUser");
 		UserVo authUser = userService.exeSelectOne(userVo.getNo());
 		session.setAttribute("authUser", authUser);
+		System.out.println(authUser);
 		return "redirect:/main";
 	}
 	

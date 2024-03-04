@@ -6,8 +6,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link href="/mysite3/assets/css/mysite.css" rel="stylesheet" type="text/css">
-<link href="/mysite3/assets/css/user.css" rel="stylesheet" type="text/css">
+<link href="${pageContext.request.contextPath}/assets/css/mysite.css" rel="stylesheet" type="text/css">
+<link href="${pageContext.request.contextPath}/assets/css/user.css" rel="stylesheet" type="text/css">
 
 </head>
 
@@ -44,7 +44,7 @@
 	
 				<div id="user">
 					<div id="joinForm">
-						<form action="/mysite3/user" method="get">
+						<form action="${pageContext.request.contextPath}/user/join" method="get">
 	
 							<!-- 아이디 -->
 							<div class="form-group">
@@ -89,7 +89,6 @@
 							<div class="button-area">
 								<button type="submit" id="btn-submit">회원가입</button>
 							</div>
-							<input type="hidden" name="action" value="join">
 						</form>
 					</div>
 					<!-- //joinForm -->
