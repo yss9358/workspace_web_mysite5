@@ -62,46 +62,16 @@
 								</tr>
 							</thead>
 							<tbody>
-								<tr>
-									<td>123</td>
-									<td class="text-left"><a href="#">게시판 게시글입니다.</a></td>
-									<td>정우성</td>
-									<td>1232</td>
-									<td>2020-12-23</td>
-									<td><a href="">[삭제]</a></td>
-								</tr>
-								<tr>
-									<td>123</td>
-									<td class="text-left"><a href="#">게시판 게시글입니다.</a></td>
-									<td>정우성</td>
-									<td>1232</td>
-									<td>2020-12-23</td>
-									<td><a href="">[삭제]</a></td>
-								</tr>
-								<tr>
-									<td>123</td>
-									<td class="text-left"><a href="#">게시판 게시글입니다.</a></td>
-									<td>정우성</td>
-									<td>1232</td>
-									<td>2020-12-23</td>
-									<td><a href="">[삭제]</a></td>
-								</tr>
-								<tr>
-									<td>123</td>
-									<td class="text-left"><a href="#">게시판 게시글입니다.</a></td>
-									<td>정우성</td>
-									<td>1232</td>
-									<td>2020-12-23</td>
-									<td><a href="">[삭제]</a></td>
-								</tr>
-								<tr class="last">
-									<td>123</td>
-									<td class="text-left"><a href="#">게시판 게시글입니다.</a></td>
-									<td>정우성</td>
-									<td>1232</td>
-									<td>2020-12-23</td>
-									<td><a href="">[삭제]</a></td>
-								</tr>
+								<c:forEach items="${userList}" var="userList">
+									<tr>
+										<td>${userList.no}</td>
+										<td class="text-left"><a href="#">${userList.title}</a></td>
+										<td>${userList.name}</td>
+										<td>${userList.hit}</td>
+										<td>${userList.regDate}</td>
+										<td><a href="">[삭제]</a></td>
+									</tr>
+								</c:forEach>
 							</tbody>
 						</table>
 			
@@ -124,8 +94,9 @@
 							
 							<div class="clear"></div>
 						</div>
-						<a id="btn_write" href="">글쓰기</a>
-					
+						<c:if test="${authUser != null}">
+							<a id="btn_write" href="${pageContext.request.contextPath}/board/writeform">글쓰기</a>
+						</c:if>
 					</div>
 					<!-- //list -->
 				</div>

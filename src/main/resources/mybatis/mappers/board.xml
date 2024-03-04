@@ -3,13 +3,27 @@
 <mapper namespace="board">
 	<!-- 쿼리문 작성 -->
 	<!-- <![CDATA[]]> -->
-	
 
 	<select id="selectList" resultType="com.javaex.vo.BoardVo">
 		<![CDATA[
-		
-		
+			select	b.no,
+					b.title,
+			        b.content,
+			        b.hit,
+			        b.reg_date regDate,
+			        b.user_no userNo,
+			        u.name name
+			from board b
+			inner join users u
+					on b.user_no = u.no
 		]]>
 	</select>
+	
+	<insert id="insert" parameterType="com.javaex.vo.BoardVo">
+		<![CDATA[
+		insert into board 
+		value(null, #{title}, #{content}, 0, now(), #{userNo})
+		]]>
+	</insert>
 	
 </mapper>
